@@ -1,6 +1,6 @@
-#Estrel_2D
-Derpy game engine
+#Truth v0.1a
+
 
 For Ludum Dare 33
 
-THEME = TBA
+THEME = You are the Monster
