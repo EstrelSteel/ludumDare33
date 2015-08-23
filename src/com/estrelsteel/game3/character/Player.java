@@ -141,6 +141,7 @@ public class Player extends Mob {
 		if(canMoveUP()) {
 			setY(getY() - walkSpeed);
 			game.playerMove.firePlayerMove(new PlayerMoveEvent(this, getX(), getY() + walkSpeed));
+			game.playerStop = 0;
 		}
 		return;
 	}
@@ -149,6 +150,7 @@ public class Player extends Mob {
 		if(canMoveDOWN()) {
 			setY(getY() + walkSpeed);
 			game.playerMove.firePlayerMove(new PlayerMoveEvent(this, getX(), getY() - walkSpeed));
+			game.playerStop = 16;
 		}
 		return;
 	}
@@ -157,6 +159,7 @@ public class Player extends Mob {
 		if(canMoveRIGHT()) {
 			setX(getX() + walkSpeed);
 			game.playerMove.firePlayerMove(new PlayerMoveEvent(this, getX() - walkSpeed, getY()));
+			game.playerStop = 0;
 		}
 		return;
 	}
@@ -165,6 +168,7 @@ public class Player extends Mob {
 		if(canMoveLEFT()) {
 			setX(getX() - walkSpeed);
 			game.playerMove.firePlayerMove(new PlayerMoveEvent(this, getX() + walkSpeed, getY()));
+			game.playerStop = 16;
 		}
 		return;
 	}

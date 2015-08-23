@@ -1,8 +1,10 @@
 package com.estrelsteel.game3.block;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.estrelsteel.game3.Game;
+import com.estrelsteel.game3.character.NPC;
 import com.estrelsteel.game3.event.map.MapAlterEvent;
 import com.estrelsteel.game3.location.Location;
 import com.estrelsteel.game3.world.World;
@@ -12,6 +14,7 @@ public class Map extends Location {
 	ArrayList<Location> blocked = new ArrayList<Location>();
 	ArrayList<Location> added = new ArrayList<Location>();
 	ArrayList<Exit> exits = new ArrayList<Exit>();
+	ArrayList<NPC> npcs = new ArrayList<NPC>();
 	Image collide;
 	Image out;
 	Image ground;
@@ -268,5 +271,17 @@ public class Map extends Location {
 	public void setName(String name) {
 		this.name = name;
 		return;
+	}
+	
+	public List<NPC> getNPCs() {
+		return npcs;
+	}
+	
+	public NPC getNPC(int num) {
+		return npcs.get(num);
+	}
+	
+	public void addNPC(NPC npc) {
+		npcs.add(npc);
 	}
 }

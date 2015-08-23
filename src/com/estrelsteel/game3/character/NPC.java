@@ -1,19 +1,40 @@
 package com.estrelsteel.game3.character;
 
+import com.estrelsteel.game3.block.Image;
 import com.estrelsteel.game3.world.World;
 
-//TODO:
-public abstract class NPC extends Mob {
+public class NPC extends Mob {
 
-	public NPC(World worldN, int xN, int yN, double wN, double hN, int walkSpeed, String name) {
+	Image image;
+	boolean shadow = true;
+	
+	public NPC(Image image, World worldN, int xN, int yN, double wN, double hN, int walkSpeed, String name) {
 		super(worldN, xN, yN, wN, hN, walkSpeed, name);
+		this.image = image;
+	}
+
+	public Image getImage() {
+		return image;
+	}
+	
+	public boolean hasShadow() {
+		return shadow;
+	}
+	
+	public void setImage(Image image) {
+		this.image = image;
+		return;
+	}
+	
+	public void setShadow(boolean shadow) {
+		this.shadow = shadow;
+		return;
 	}
 
 	@Override
 	public void setHealth(double health) {
-		//TODO:
+		this.health = health;
+		return;
 	}
 	
-	public abstract void npcAI(int targetX, int targetY);
-
 }

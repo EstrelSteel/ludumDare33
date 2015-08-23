@@ -17,7 +17,7 @@ public class WindowHandler extends WindowAdapter implements WindowFocusListener,
 	
     public void windowClosing(WindowEvent e) {
     	game.stop();
-    	//game.music.stopPlaying();
+    	game.mp3.close();
     	System.exit(0);
     	e.getWindow().dispose();
     	
