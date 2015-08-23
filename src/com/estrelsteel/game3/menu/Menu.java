@@ -59,10 +59,13 @@ public class Menu {
 		y = y + (yIncrease * 2);
 		for(MenuItems item : menuItems) {
 			String name = item.getTitle();
-			
+			String active = "Off";
+			if(item.isActive()) {
+				active = "On";
+			}
 			
 			if(i == selectNum && item != MenuItems.CANCEL) {
-				ctx.drawString(">>>" + name + " = " + item.isActive(), x, y);
+				ctx.drawString(">>>" + name + " ~ " + active, x, y);
 			}
 			else if(i == selectNum && item == MenuItems.CANCEL) {
 				ctx.drawString(">>>" + name, x, y);
@@ -71,7 +74,7 @@ public class Menu {
 				ctx.drawString("" + name, x, y);
 			}
 			else{
-				ctx.drawString("" + name + " = " + item.isActive(), x, y);
+				ctx.drawString("" + name + " ~ " + active, x, y);
 			}
 			x = x + xIncrease;
 			y = y + yIncrease;
@@ -85,8 +88,6 @@ public class Menu {
 		menuItems.add(MenuItems.MUSIC_VOL);
 		menuItems.add(MenuItems.SCREEN_ARROWS);
 		menuItems.add(MenuItems.PAUSE_CLOSE);
-		menuItems.add(MenuItems.SHOW_FPS);
-		menuItems.add(MenuItems.SHOW_TPS);
 		menuItems.add(MenuItems.CANCEL);
 		return;
 	}

@@ -10,7 +10,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public enum Music {
-	TEST_WAV("/com/estrelsteel/game3/res/music/testSound.wav");
+	THEME_WAV("/com/estrelsteel/game3/res/music/LD33.mp3");
 	
 	public Volume vol = Volume.LOW;
 	

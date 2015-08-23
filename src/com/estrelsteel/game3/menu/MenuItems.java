@@ -2,13 +2,13 @@ package com.estrelsteel.game3.menu;
 
 public enum MenuItems {
 	
-	CANCEL("SAVE", false),
-	SFX_VOL("SFX_VOLUME", false),
-	MUSIC_VOL("MUSIC_VOLUME", false),
-	SCREEN_ARROWS("ON_SCREEN_ARROWS", false),
-	PAUSE_CLOSE("PAUSE_ON_MOUSE_EXIT", true),
-	SHOW_FPS("SHOW_FPS", false),
-	SHOW_TPS("SHOW_TPS", false);
+	CANCEL("Save/Exit Menu", false),
+	SFX_VOL("Sound Effects", false),
+	MUSIC_VOL("Music", true),
+	SCREEN_ARROWS("On-Screen Arrows", false),
+	PAUSE_CLOSE("Pause on Mouse Exit", true),
+	SHOW_FPS("Show FPS", false),
+	SHOW_TPS("Show TPS", false);
 	
 	private String title;
 	private boolean active;

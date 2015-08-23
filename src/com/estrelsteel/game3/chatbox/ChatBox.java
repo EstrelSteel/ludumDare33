@@ -1,6 +1,7 @@
 package com.estrelsteel.game3.chatbox;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import com.estrelsteel.game3.Game;
@@ -48,14 +49,20 @@ public class ChatBox extends Location {
 	}
 	
 	public Graphics getGraphics(Graphics ctx) {
+		ctx.setFont(new Font("Garamond", Font.PLAIN, 15));
 		if(bottom) {
 			ctx.setColor(Color.BLACK);
 			ctx.fillRect(getX(), Game.HEIGHT - getY(),  Game.WIDTH - (int) getW(), (int) getH());
 			ctx.setColor(Color.WHITE);
 			ctx.fillRect(getX() + 1, Game.HEIGHT - getY() + 1, Game.WIDTH - (int) getW() + 2, (int) getH() + 2);
 			ctx.setColor(Color.BLACK);
+			if(name == "GHOST") {
+				ctx.setColor(Color.RED);
+				ctx.setFont(new Font("Garamond", Font.ITALIC, 15));
+				ctx.setFont(new Font("Garamond", Font.BOLD, 15));
+			}
 			ctx.drawString(name + ": " + text, getX() + 5, Game.HEIGHT - getY() + 14);
-			ctx.drawString("[space]", Game.WIDTH - (int) getW() - 22, Game.HEIGHT - getY() + (int) getH() - 2);
+			ctx.drawString("[space]", Game.WIDTH - (int) getW() - 35, Game.HEIGHT - getY() + (int) getH() - 2);
 		}
 		else {
 			ctx.setColor(Color.BLACK);
@@ -64,7 +71,7 @@ public class ChatBox extends Location {
 			ctx.fillRect(getX() + 1, getY() + 1, Game.WIDTH - (int) getW() + 2, (int) getH() + 2);
 			ctx.setColor(Color.BLACK);
 			ctx.drawString(name + ": " + text, getX() + 5, getY() + 14);
-			ctx.drawString("[space]", Game.WIDTH - (int) getW() - 22, Game.HEIGHT - getY() + (int) getH() - 2);
+			ctx.drawString("[space]", Game.WIDTH - (int) getW() - 35, Game.HEIGHT - getY() + (int) getH() - 2);
 		}
 		return ctx;
 	}

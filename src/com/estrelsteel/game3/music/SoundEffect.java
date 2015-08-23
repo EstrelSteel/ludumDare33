@@ -10,7 +10,9 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public enum SoundEffect {
-	TEST_WAV("/com/estrelsteel/game3/res/music/testSound.wav");
+	SELECT_WAV("/com/estrelsteel/game3/res/music/select.wav"),
+	KILL_WAV("/com/estrelsteel/game3/res/music/getKill.wav"),
+	EXIT_WAV("/com/estrelsteel/game3/res/music/exit1.wav");
 	
 	public static Volume vol = Volume.LOW;
 	

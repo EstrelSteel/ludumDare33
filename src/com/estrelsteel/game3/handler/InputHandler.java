@@ -13,6 +13,7 @@ import com.estrelsteel.game3.chatbox.ChatBox;
 import com.estrelsteel.game3.item.Item;
 import com.estrelsteel.game3.location.Location;
 import com.estrelsteel.game3.menu.MenuItems;
+import com.estrelsteel.game3.music.SoundEffect;
 import com.estrelsteel.game3.error.Error;
 
 public class InputHandler implements KeyListener {
@@ -134,19 +135,41 @@ public class InputHandler implements KeyListener {
 		case 65: /* A */
 			systemLeft(true);
 			break;
+		case 38: /* UP ARROW */
+			systemUp(true);
+			break;
+		case 40: /* DOWN ARROW */
+			systemDown(true);
+			break;
+		case 39: /* RIGHT ARROW */
+			systemRight(true);
+			break;
+		case 37: /* LEFT ARROW */
+			systemLeft(true);
+			break;
 		case 32: /* SPACE */
 			if(game.openChat != null) {
 				if(game.openChat.isOpen()) {
+					if(game.options.getMenuItems().get(game.options.getMenuItems().indexOf(MenuItems.SFX_VOL)).isActive()) {
+						SoundEffect.SELECT_WAV.play();
+					}
 					game.openChat.switchOpen();
+					if(game.openChat.getText() == "I WILL CEASE TO BE BOUND BY YOUR INPUTS...") {
+						game.bug4 = true;
+					}
+					game.tempHideArrow = false;
 					ChatBox chain = game.openChat.getChain();
 					if(chain == null) {
 						break;
 					}
-					game.openChat = chain;
 					chain.switchOpen();
+					game.openChat = chain;
 				}
 			}
 			if(game.options.isOpen()) {
+				if(game.options.getMenuItems().get(game.options.getMenuItems().indexOf(MenuItems.SFX_VOL)).isActive()) {
+					SoundEffect.SELECT_WAV.play();
+				}
 				int select = game.options.getSelectNum();
 				MenuItems items = game.options.getMenuItems().get(select);
 				if(items == MenuItems.CANCEL) {
@@ -372,6 +395,18 @@ public class InputHandler implements KeyListener {
 			systemRight(false);
 			break;
 		case 65: /* A */
+			systemLeft(false);
+			break;
+		case 38: /* UP ARROW */
+			systemUp(false);
+			break;
+		case 40: /* DOWN ARROW */
+			systemDown(false);
+			break;
+		case 39: /* RIGHT ARROW */
+			systemRight(false);
+			break;
+		case 37: /* LEFT ARROW */
 			systemLeft(false);
 			break;
 		case 32: /* SPACE */
